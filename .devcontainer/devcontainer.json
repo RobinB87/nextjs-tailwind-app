@@ -5,13 +5,23 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
 
+	"customizations": {
+		"vscode": {
+		  "extensions": [
+			"dsznajder.es7-react-js-snippets",
+			"ms-vscode.vscode-typescript-next",
+			"bradlc.vscode-tailwindcss"
+		  ]
+		}
+	},
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [3000],
 
-	"postStartCommand": "git config --global user.email \"${localEnv:VSCODE_CONTAINER_GIT_EMAIL}\" && git config --global user.name \"${localEnv:VSCODE_CONTAINER_GIT_USER}\""
+	"postStartCommand": "git config --global user.email \"${localEnv:VSCODE_CONTAINER_GIT_EMAIL}\" && git config --global user.name \"${localEnv:VSCODE_CONTAINER_GIT_USER}\" && cd next-app"
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
