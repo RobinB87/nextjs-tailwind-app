@@ -14,5 +14,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  padding: 1rem;
+}
+
+/* by default, with tailwind, elements are unstyled, even h1 etc.
+   Can override this by using @layer and @apply and then apply tailwind styles 
+   The main layers are set above, base, components and utilities */
+@layer base {
+  h1 {
+    /* now all h1 elements have this style */
+    @apply font-extrabold text-2xl mb-3
+  }
 }
