@@ -1,6 +1,11 @@
 import UsersTable from "./UsersTable";
 
-const UsersPage = async () => {
+interface Props {
+  searchParams: { sortOrder: string };
+}
+
+// can only get routing params in page components, so you need to pass them to childs as props
+const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
   return (
     <>
       <h1>Users:</h1>
@@ -9,7 +14,7 @@ const UsersPage = async () => {
       Rendering can happend static or dynamic. If no cache options are used in the fetch method, the below date will not change for a production build. 
       When 'cache: "no-store"' is used, You will see a lambda in the build output, before the /users page, and an explanation that rendering happens at run time on the server side and not static */}
       {/* <p>{new Date().toLocaleTimeString()}</p> */}
-      <UsersTable />
+      <UsersTable sortOrder={sortOrder} />
     </>
   );
 };
