@@ -1,6 +1,7 @@
 interface User {
   id: number;
   name: string;
+  email: string;
 }
 
 const UsersPage = async () => {
@@ -19,12 +20,23 @@ const UsersPage = async () => {
       
       Rendering can happend static or dynamic. If no cache options are used in the fetch method, the below date will not change for a production build. 
       When 'cache: "no-store"' is used, You will see a lambda in the build output, before the /users page, and an explanation that rendering happens at run time on the server side and not static */}
-      <p>{new Date().toLocaleTimeString()}</p>
-      <ul>
-        {users.map((x) => (
-          <li key={x.id}>{x.name}</li>
-        ))}
-      </ul>
+      {/* <p>{new Date().toLocaleTimeString()}</p> */}
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((x) => (
+            <tr key={x.id}>
+              <td>{x.name}</td>
+              <td>{x.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };
