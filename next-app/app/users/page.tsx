@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 
 import UsersTable from "./UsersTable";
 
@@ -19,7 +20,12 @@ const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
       Rendering can happend static or dynamic. If no cache options are used in the fetch method, the below date will not change for a production build. 
       When 'cache: "no-store"' is used, You will see a lambda in the build output, before the /users page, and an explanation that rendering happens at run time on the server side and not static */}
       {/* <p>{new Date().toLocaleTimeString()}</p> */}
-      <UsersTable sortOrder={sortOrder} />
+
+      {/* Use suspense to show a FALLBACK UI which is shown while the component is being rendered 
+      TRICK: go to react devtools, look for suspense and click 'suspend' in top right corner to show the fallback component*/}
+      <Suspense fallback={<p>Loading...</p>}>
+        <UsersTable sortOrder={sortOrder} />
+      </Suspense>
     </>
   );
 };
