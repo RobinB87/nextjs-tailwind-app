@@ -23,9 +23,7 @@ const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
 
       {/* Use suspense to show a FALLBACK UI which is shown while the component is being rendered 
       TRICK: go to react devtools, look for suspense and click 'suspend' in top right corner to show the fallback component*/}
-      <Suspense fallback={<p>Loading...</p>}>
-        <UsersTable sortOrder={sortOrder} />
-      </Suspense>
+      <UsersTable sortOrder={sortOrder} />
     </>
   );
 };
