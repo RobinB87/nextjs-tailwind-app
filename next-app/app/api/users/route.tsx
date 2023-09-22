@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import schema from "./schema";
 
 // if you do not use the request object, even if it is unused, then nextjs will return cached data
 export const GET = (request: NextRequest) => {
@@ -16,6 +17,8 @@ export const GET = (request: NextRequest) => {
 
 export const POST = async (request: NextRequest) => {
   const body = await request.json();
-  if (!body.name) return NextResponse.json({ error: "Name is required" }, { status: 400 });
-  return NextResponse.json({ id: 1, name: body.name });
+  const validation = schema.safeParse(body);
+  return validation.success
+    ? NextResponse.json({ id: 1, name: body.name })
+    : NextResponse.json(validation.error.errors, { status: 400 });
 };
