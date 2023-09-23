@@ -12,6 +12,7 @@
 			"ms-vscode.vscode-typescript-next",
 			"bradlc.vscode-tailwindcss",
 			"esbenp.prettier-vscode",
+			"prisma.prisma"
 		  ],
 		  "settings": {
 			"editor.formatOnSave": true,
