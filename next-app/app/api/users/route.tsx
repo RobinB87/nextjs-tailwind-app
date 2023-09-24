@@ -12,7 +12,19 @@ export const GET = async (request: NextRequest) => {
 export const POST = async (request: NextRequest) => {
   const body = await request.json();
   const validation = schema.safeParse(body);
-  return validation.success
-    ? NextResponse.json({ id: 1, name: body.name })
-    : NextResponse.json(validation.error.errors, { status: 400 });
+  if (!validation.success) return NextResponse.json(validation.error.errors, { status: 400 });
+
+  const user = await prisma.user.findUnique({ where: { email: body.email } });
+  if (user) return NextResponse.json({ error: "user already exists" }, { status: 400 });
+
+  // set fields specifically instead of just using { data: body }, more safe
+  const newUser = await prisma.user.create({
+    data: {
+      name: body.name,
+      email: body.email,
+    },
+  });
+  return newUser
+    ? NextResponse.json(newUser)
+    : NextResponse.json({ error: "error while saving user" }, { status: 400 });
 };
