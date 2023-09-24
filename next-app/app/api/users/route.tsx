@@ -26,5 +26,5 @@ export const POST = async (request: NextRequest) => {
   });
   return newUser
     ? NextResponse.json(newUser)
-    : NextResponse.json({ error: "error while saving user" }, { status: 400 });
+    : NextResponse.json({ error: "error while creating user" }, { status: 400 });
 };
