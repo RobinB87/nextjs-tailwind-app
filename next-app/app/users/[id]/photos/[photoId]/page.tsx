@@ -1,5 +1,5 @@
 interface Props {
-  params: { id: number; photoId: number };
+  params: { id: string; photoId: string };
 }
 
 const UserPhotosPage = ({ params: { id, photoId } }: Props) => {
