@@ -30,8 +30,10 @@ export const PUT = async (request: NextRequest, { params }: { params: { id: stri
     : NextResponse.json({ error: "error while updating user" }, { status: 400 });
 };
 
-export const DELETE = (request: NextRequest, { params }: { params: { id: string } }) => {
-  // fake data fetch
-  if (+params.id > 10) return NextResponse.json({ error: "user not found" }, { status: 404 });
+export const DELETE = async (request: NextRequest, { params }: { params: { id: string } }) => {
+  const user = await prisma.user.findUnique({ where: { id: +params.id } });
+  if (!user) return NextResponse.json({ error: "user not found" }, { status: 404 });
+
+  await prisma.user.delete({ where: { id: user.id } });
   return NextResponse.json({});
 };
