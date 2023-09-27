@@ -50,7 +50,7 @@ and in schema.prisma: shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 
 # https://next.cloudinary.dev/installation
 
-https://console.cloudinary.com/settings/c-e88c35edca181747970452d2d6ff17/upload_presets/new
+https://console.cloudinary.com/settings/<id>/upload_presets/new
 
 in env, add:
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<name of the cloud>"
