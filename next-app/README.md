@@ -56,3 +56,8 @@ in env, add:
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<name of the cloud>"
 
 # https://next-auth.js.org/
+
+    npm install next-auth
+
+add route handlers (new router style)
+https://next-auth.js.org/configuration/initialization#route-handlers-app
