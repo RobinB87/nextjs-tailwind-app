@@ -67,3 +67,21 @@ NEXTAUTH_URL=your_localhost / site
 NEXTAUTH_SECRET= some random long string, or generate with
 
     openssl rand -base64 32
+
+Choose a provider for logging in, e.g Google:
+https://next-auth.js.org/providers/
+
+first create some credentials:
+https://console.cloud.google.com/apis/credentials
+
+- creat project
+- click configure consent screen
+- add some scopes, like:
+  .../auth/userinfo.email See your primary Google Account email address
+  .../auth/userinfo.profile See your personal info, including any personal info you've made publicly available
+- add test users
+- credentials tab
+- create OAuth, add uri, and redirect uri (see next-auth providers/google: For development: http://localhost:3000/api/auth/callback/google)
+- store client and secret in env file, eg;
+  GOOGLE_CLIENT_ID=
+  GOOGLE_CLIENT_SECRET=
