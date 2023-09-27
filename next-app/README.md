@@ -6,31 +6,53 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# https://tailwindcss.com/docs/guides/create-react-app
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+installed when using
 
-## Learn More
+    npx create-next-app@latest
 
-To learn more about Next.js, take a look at the following resources:
+# https://react.daisyui.com/?path=/docs/welcome--docs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    npm i -D daisyui@latest
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Then add daisyUI to your tailwind.config.js files:
+module.exports = {
+//...
+plugins: [require("daisyui")],
+}
 
-## Deploy on Vercel
+To add a theme:
+module.exports = {
+//...
+daisyui: {
+themes: ["light", "dark", "cupcake"],
+},
+}
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<html data-theme="cupcake"></html>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# https://www.prisma.io/react-server-components
+
+connection string in public/.env should be something like:
+DATABASE_URL="mysql://<user_name>:<password>@db:3306/test"
+
+To be able to create a shadow db to use migrate dev, create a shadowDb url:
+SHADOW_DATABASE_URL="mysql://<user_name>:<password>@db:3306/shadowDb"
+and in schema.prisma: shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+
+    npx prisma migrate dev ==>> this does not really work when using docker it seems,
+    npx prisma db push ==>> this does the trick
+
+# https://next.cloudinary.dev/installation
+
+https://console.cloudinary.com/settings/c-e88c35edca181747970452d2d6ff17/upload_presets/new
+
+in env, add:
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<name of the cloud>"
+
+# https://next-auth.js.org/
