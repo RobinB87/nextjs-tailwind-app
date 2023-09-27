@@ -61,3 +61,9 @@ NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="<name of the cloud>"
 
 add route handlers (new router style)
 https://next-auth.js.org/configuration/initialization#route-handlers-app
+
+in env add:
+NEXTAUTH_URL=your_localhost / site
+NEXTAUTH_SECRET= some random long string, or generate with
+
+    openssl rand -base64 32
