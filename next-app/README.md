@@ -85,3 +85,8 @@ https://console.cloud.google.com/apis/credentials
 - store client and secret in env file, eg;
   GOOGLE_CLIENT_ID=
   GOOGLE_CLIENT_SECRET=
+
+create adapter to store users:
+https://authjs.dev/reference/adapter/prisma
+
+    npm i @next-auth/prisma-adapter
