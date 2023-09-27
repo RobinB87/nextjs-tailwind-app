@@ -13,7 +13,14 @@ const NavBar = () => {
       </Link>
       <Link href="/users">Users</Link>
       {status === "loading" && <span className="loading loading-bars loading-md"></span>}
-      {status === "authenticated" && <div>{session.user?.name}</div>}
+      {status === "authenticated" && (
+        <div>
+          {session.user?.name}{" "}
+          <Link href={"/api/auth/signout"} className="ml-3">
+            Log out
+          </Link>
+        </div>
+      )}
       {/* endpoint is exposed by next-auth */}
       {status === "unauthenticated" && <Link href="/api/auth/signin">Login</Link>}
     </div>
