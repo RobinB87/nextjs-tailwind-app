@@ -98,4 +98,5 @@ For CredentialsProvider install bcrypt:
 
 # Email
 
-npm i react-email @react-email/components
+    npm i react-email @react-email/components
+    npm i resend
