@@ -3,12 +3,12 @@ import { getServerSession } from "next-auth";
 import { Metadata } from "next";
 import Image from "next/image";
 
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "./api/auth/authOptions";
 import ProductCard from "./components/ProductCard/ProductCard";
 import HeavyComponentLazyLoadingShowCase from "./components/HeavyComponentLazyLoadingShowCase";
+import ExternalJsLibraryLazyLoadingShowCase from "./components/ExternalJsLibraryLazyLoadingShowCase";
 
 import bla from "@/public/images/bla.png";
-import ExternalJsLibraryLazyLoadingShowCase from "./components/ExternalJsLibraryLazyLoadingShowCase";
 
 // Link:
 //  - only downloads content of the target page (so if you click /users, it does not download the navbar etc). rsc in devtools stands for react_server_component
