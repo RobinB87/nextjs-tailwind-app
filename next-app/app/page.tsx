@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
+import { Metadata } from "next";
 import Image from "next/image";
 
 import { authOptions } from "./api/auth/[...nextauth]/route";
@@ -36,3 +37,18 @@ export default async function Home() {
     </main>
   );
 }
+
+// override the metadata from the layout page, in various pages...
+// export const metadata: Metadata = {
+//   title: "...",
+//   description: "...",
+// };
+
+// can also generate dynamic metadata
+// export const generateMetadata = async (): Promise<Metadata> => {
+//   const bla = await fetch();
+
+//   return {
+//     title: bla.bla,
+//   };
+// };
