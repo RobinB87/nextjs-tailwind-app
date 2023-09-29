@@ -8,6 +8,7 @@ import ProductCard from "./components/ProductCard/ProductCard";
 import HeavyComponentLazyLoadingShowCase from "./components/HeavyComponentLazyLoadingShowCase";
 
 import bla from "@/public/images/bla.png";
+import ExternalJsLibraryLazyLoadingShowCase from "./components/ExternalJsLibraryLazyLoadingShowCase";
 
 // Link:
 //  - only downloads content of the target page (so if you click /users, it does not download the navbar etc). rsc in devtools stands for react_server_component
@@ -31,7 +32,10 @@ export default async function Home() {
       {/* Next.js provides the Link component to enable client-side navigation. This means as the user navigates between pages, the new content is loaded quickly and smoothly without the entire page being reloaded.  */}
       <Link href="/users/">Users</Link>
       <ProductCard />
-      <HeavyComponentLazyLoadingShowCase />
+      <div>
+        <HeavyComponentLazyLoadingShowCase />
+      </div>
+      <ExternalJsLibraryLazyLoadingShowCase />
 
       {/* under the hood, next/image automatically compresses and resizes images based on device size, always prefer this one in nextjs over the default image element */}
       {/* image in public folder is of type webp, which is modern and far smaller than .jpg etc */}
