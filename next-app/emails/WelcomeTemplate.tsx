@@ -1,15 +1,18 @@
-import { Body, Container, Html, Link, Preview, Text } from "@react-email/components";
+import { Body, Container, Html, Link, Preview, Tailwind, Text } from "@react-email/components";
+import { CSSProperties } from "react";
 
 const WelcomeTemplate = ({ name }: { name: string }) => {
   return (
     <Html>
-      <Preview>Welcome!</Preview>
-      <Body>
-        <Container>
-          <Text>Hello {name}</Text>
-          <Link href="www.google.com">Linkje</Link>
-        </Container>
-      </Body>
+      <Preview>Welcome aboard!</Preview>
+      <Tailwind>
+        <Body className="bg-white">
+          <Container>
+            <Text className="font-bold text-3xl">Hello {name}</Text>
+            <Link href="www.google.com">Linkje</Link>
+          </Container>
+        </Body>
+      </Tailwind>
     </Html>
   );
 };
