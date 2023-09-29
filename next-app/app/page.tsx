@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import ProductCard from "./components/ProductCard/ProductCard";
+import HeavyComponent from "./components/HeavyComponent";
 
 import bla from "@/public/images/bla.png";
 
@@ -30,6 +31,8 @@ export default async function Home() {
       {/* Next.js provides the Link component to enable client-side navigation. This means as the user navigates between pages, the new content is loaded quickly and smoothly without the entire page being reloaded.  */}
       <Link href="/users/">Users</Link>
       <ProductCard />
+
+      <HeavyComponent />
 
       {/* under the hood, next/image automatically compresses and resizes images based on device size, always prefer this one in nextjs over the default image element */}
       {/* image in public folder is of type webp, which is modern and far smaller than .jpg etc */}
