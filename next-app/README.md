@@ -100,3 +100,22 @@ For CredentialsProvider install bcrypt:
 
     npm i react-email @react-email/components
     npm i resend
+
+# Images
+
+https://nextjs.org/docs/pages/api-reference/components/image
+
+config as:
+
+module.exports = {
+images: {
+remotePatterns: [
+{
+protocol: 'https',
+hostname: 'example.com',
+port: '',
+pathname: '/account123/**',
+},
+],
+},
+}
