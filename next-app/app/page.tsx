@@ -15,8 +15,16 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
 
   return (
-    <main>
-      <Image src="https://bit.ly/react-cover" alt="bla" fill className="object-cover" />
+    // h-screen is 100% height of the viewport
+    <main className="relative h-screen">
+      <Image
+        src="https://bit.ly/react-cover"
+        alt="bla"
+        fill
+        className="object-cover"
+        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+        priority
+      />
       {/* <h1>Hello {session && <span>{session.user?.name}</span>}</h1> */}
       {/* Next.js provides the Link component to enable client-side navigation. This means as the user navigates between pages, the new content is loaded quickly and smoothly without the entire page being reloaded.  */}
       {/* <Link href="/users/">Users</Link> */}
