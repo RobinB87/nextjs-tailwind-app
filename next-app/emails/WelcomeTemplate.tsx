@@ -1,5 +1,4 @@
 import { Body, Container, Html, Link, Preview, Tailwind, Text } from "@react-email/components";
-import { CSSProperties } from "react";
 
 const WelcomeTemplate = ({ name }: { name: string }) => {
   return (
