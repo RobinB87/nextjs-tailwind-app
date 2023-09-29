@@ -90,3 +90,8 @@ create adapter to store users:
 https://authjs.dev/reference/adapter/prisma
 
     npm i @next-auth/prisma-adapter
+
+For CredentialsProvider install bcrypt:
+
+    npm i bcrypt
+    npm i -D @types/bcrypt
