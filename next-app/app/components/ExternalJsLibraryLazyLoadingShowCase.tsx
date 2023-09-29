@@ -1,11 +1,11 @@
 "use client";
-import _ from "lodash";
 
 const ExternalJsLibraryLazyLoadingShowCase = () => {
   return (
     <>
       <button
-        onClick={() => {
+        onClick={async () => {
+          const _ = (await import("lodash")).default;
           const users = [
             { name: "r" },
             { name: "v" },
