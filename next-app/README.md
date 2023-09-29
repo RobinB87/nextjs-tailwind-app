@@ -126,3 +126,7 @@ for example
 
     npm i lodash
     npm i -D @types/lodash
+
+# Deployment
+
+    npm run build
