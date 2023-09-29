@@ -22,6 +22,7 @@ body {
 @layer base {
   h1 {
     /* now all h1 elements have this style */
+    /* in case of localFont, you can extend it here as well, if you want, eg: font-poppins */
     @apply font-extrabold text-2xl mb-3
   }
 }

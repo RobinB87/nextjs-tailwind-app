@@ -1,12 +1,20 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
+import localFont from "next/font/local";
 
 import AuthProvider from "./auth/Provider";
 import NavBar from "./NavBar";
 import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 
+// even though these are google fonts, they are served from our own domain
+// for production, these files are downloaded first and then served
 const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"] });
+const fakeFont = localFont({
+  src: "../public/fonts/some-woff2file.woff2",
+  variable: "--font-poppins",
+}); // then use it in the body with className={fakeFont.variable}
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-theme="cyberpunk">
       <GoogleAnalyticsScript />
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <AuthProvider>
           <NavBar />
           <main className="p-5">{children}</main>
