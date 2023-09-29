@@ -31,7 +31,7 @@ export const PUT = async (request: NextRequest, { params }: { params: { id: stri
 };
 
 export const DELETE = async (request: NextRequest, { params }: { params: { id: string } }) => {
-  const user = await prisma.user.findUnique({ where: { id: +params.id } });
+  const user = await prisma.user.findUnique({ where: { id: params.id } });
   if (!user) return NextResponse.json({ error: "user not found" }, { status: 404 });
 
   await prisma.user.delete({ where: { id: user.id } });
