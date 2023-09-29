@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import ProductCard from "./components/ProductCard/ProductCard";
-import HeavyComponent from "./components/HeavyComponent";
+import HeavyComponentLazyLoadingShowCase from "./components/HeavyComponentLazyLoadingShowCase";
 
 import bla from "@/public/images/bla.png";
 
@@ -19,6 +19,7 @@ export default async function Home() {
   return (
     // h-screen is 100% height of the viewport
     <main className="relative h-screen">
+      <h1>Hello {session && <span>{session.user?.name}</span>}</h1>
       {/* <Image
         src="https://bit.ly/react-cover"
         alt="bla"
@@ -27,12 +28,10 @@ export default async function Home() {
         sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
         priority
       /> */}
-      <h1>Hello {session && <span>{session.user?.name}</span>}</h1>
       {/* Next.js provides the Link component to enable client-side navigation. This means as the user navigates between pages, the new content is loaded quickly and smoothly without the entire page being reloaded.  */}
       <Link href="/users/">Users</Link>
       <ProductCard />
-
-      <HeavyComponent />
+      <HeavyComponentLazyLoadingShowCase />
 
       {/* under the hood, next/image automatically compresses and resizes images based on device size, always prefer this one in nextjs over the default image element */}
       {/* image in public folder is of type webp, which is modern and far smaller than .jpg etc */}
