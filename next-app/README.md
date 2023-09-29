@@ -119,3 +119,10 @@ pathname: '/account123/**',
 ],
 },
 }
+
+# Lazy loading external javascript libraries
+
+for example
+
+    npm i lodash
+    npm i -D @types/lodash
