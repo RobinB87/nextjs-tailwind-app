@@ -130,3 +130,12 @@ for example
 # Deployment
 
     npm run build
+
+https://vercel.com/
+import next app
+override build command:
+
+    npx prisma generate && next build
+
+and set env variables:
+create production env / get host for sql, cloudinary
